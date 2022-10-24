@@ -64,7 +64,22 @@
 			</dict>
 		</array>
 		<key>Delete</key>
-		<array/>
+		<array>
+			<dict>
+				<key>All</key>
+				<true/>
+				<key>Comment</key>
+				<string>Delete xh_rksu4</string>
+				<key>Enabled</key>
+				<false/>
+				<key>OemTableId</key>
+				<data>eGhfcmtzdTQ=</data>
+				<key>TableLength</key>
+				<integer>4216</integer>
+				<key>TableSignature</key>
+				<data>U1NEVA==</data>
+			</dict>
+		</array>
 		<key>Patch</key>
 		<array>
 			<dict>
@@ -616,7 +631,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>j160</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
