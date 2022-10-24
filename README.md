@@ -24,7 +24,6 @@
 - Intel Platform Trust (mostly in CPU settings)
 - CFG Lock (MSR 0xE2 write protection) This must be off, if you can't find the option then ENABLE AppleXcpmCfgLock. Your hack will not boot with CFG-Lock enabled.
 
-
 ## Enable
 
 - VT-X or VT-D
@@ -35,6 +34,23 @@ When enabling Above4G, Resizable BAR Support may become an available on some mot
 - USB-Settings: XHCI Hand-off
 - OS type: Windows 8.1/10 UEFI Mode or OTHER
 - SATA Mode: AHCI
+
+# Creating a macOS Installer Stick
+
+You should do these steps on a real Mac.
+
+1. Insert a USB-Stick with at least 16GB. A stick with an LED is recommended to see if it is doing something.
+2. Erase the stick with GUID partition scheme and macOS Journaled (Extended) format.
+3. Rename the volume to "MyVolume".
+4. Download macOS from the App Store. After downloading you should have an installer in the applications folder.
+5. Go to this page and copy the terminal command for your macOS version: [Create a bootable USB installer for macOS](https://support.apple.com/de-de/HT201372)
+6. Open terminal and paste the command, e.g. for Monterey "sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume"
+7. Hit enter and commit the upcoming questions with Y for Yes. macOS should now create your macOS Installer stick.
+8. When the installer stick creation is finished, the installer volume should be mounted.
+9. Download and open Hackintool and go into the "Disks" menu. Click the double arrow beside your installer stick to mount its EFI-partition.
+10. Copy the EFI folder into the root of the EFI-partition. When you open the EFI-partition you should have EFI-folder with the OC and Boot folder inside.
+11. Adjust your BIOS-settings and boot from the stick in the UEFI-mode.
+12. Start the macOS installation.
 
 # Secure Boot
 
@@ -47,7 +63,6 @@ And you need to enroll all .efi files from you EFI-folder into your BIOS-Secure 
 This whitelists the checksums of all .efi files allowed to be booted from. 
 
 So every time you exchange any of the .efi files, you need to enroll them again. E.g. when you update OC.
-
 
 **BIOS-Settings for Secure Boot**:
   - Set **Secure Boot** to Enabled
