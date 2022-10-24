@@ -295,7 +295,7 @@
 				<key>BundlePath</key>
 				<string>RestrictEvents.kext</string>
 				<key>Comment</key>
-				<string>Required: Suppress notifications</string>
+				<string>Required: Suppress notifications e.g. on wrong RAM placement</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -331,7 +331,7 @@
 				<key>BundlePath</key>
 				<string>AppleIntelI210Ethernet.kext</string>
 				<key>Comment</key>
-				<string>Required: I225V Support for macOS Ventura</string>
+				<string>optional: Intel 2.5Gbit Ethernet (I225V) Support for macOS Ventura</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -367,7 +367,7 @@
 				<key>BundlePath</key>
 				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
-				<string>Optional: VirtualSMC for CPU Sensor Data e.g. CPU Core Temp</string>
+				<string>Optional: VirtualSMC-plugin for CPU Sensor Data e.g. CPU Core Temp</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -385,7 +385,7 @@
 				<key>BundlePath</key>
 				<string>SMCSuperIO.kext</string>
 				<key>Comment</key>
-				<string>Optional: VirtualSMC for Mainboard Sensor Data e.g. case fan speed</string>
+				<string>Optional: VirtualSMC-plugin for Mainboard Sensor Data e.g. case fan speed</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
