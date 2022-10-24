@@ -158,9 +158,7 @@ Kext|Description
 
 Reference Guide: [Wireless Buyers Guide](https://dortania.github.io/Wireless-Buyers-Guide/)
 
-If you want to use your onboard Intel Wifi/BT card, you can do with this Kext.
-
-[itlwm](https://github.com/OpenIntelWireless/itlwm/releases/tag/v2.1.0)
+If you want to use your onboard Intel Wifi/BT card, you can do with this Kext: [itlwm](https://github.com/OpenIntelWireless/itlwm/releases/tag/v2.1.0)
 
 But I recommend installing a macOS compatible Wifi/BT card from Broadcom.
 
@@ -184,19 +182,19 @@ In the config.plist set your SMBIOS to either iMac20,1 (for anything less than 1
 
 Remember, when choosing a different SMBIOS, you need to adjust your USBMapxx.kext accordingly. Open the info.plist and replace iMacPro1,1 with your current SMBIOS e.g. iMac20,2.
 
-[iGPU for display](/Docs/iGPU-for-display.png)
+<img src="Docs/iGPU-for-display.png" width="500">
 
 These device properties only activate the iGPU for display. But you might add much more properties to have video output from HDMI/DP.
 
 See my iGPU Device Properties from my 10900k of my Gigybte Z490 Vision D for reference.
 
-[iGPU for display](/Docs/iGPU-Z490-VisionD.png)
+<img src="Docs/iGPU-Z490-VisionD.png" width="500">
 
 More information here: [Framebuffer Patching Guide](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md)
 
 ## iGPU for computing only
 
-[iGPU for computing only](/Docs/iGPU-for-computing.png)
+<img src="/Docs/iGPU-for-computing.png" width="500">
 
 # USB
 
