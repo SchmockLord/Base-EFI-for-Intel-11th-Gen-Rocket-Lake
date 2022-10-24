@@ -34,9 +34,32 @@ When enabling Above4G, Resizable BAR Support may become an available on some mot
 
 # ACPI
 
+Editor: MacIASL (https://github.com/acidanthera/MaciASL/releases)
+
+In general: Don't just copy and paste .aml files from other EFIs. The .aml files are highly specifically for each system. Especially the paths for each device are different from one system to the other. 
+
+E.g. sometimes the paths start with _SB_.PCI0 and sometimes they start with _SB_.PC00. If this path is wrong, they won't do anything. Luckily the ones from Dortania are kind of universal and cover many platforms. They contain many variants of different paths for each platform.
+
+For more information:
+[Getting started with ACPI](https://dortania.github.io/Getting-Started-With-ACPI/)
+
+[Guide on choosing SSDTs](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html#desktop)
+
+## required ACPI
+.aml-file|Description
 :----|:----
-[SSDT-RHUB.aml](https://dortania.github.io/Getting-Started-With-ACPI/Universal/rhub-methods/prebuilt.html)|If you experience issues with USB when booting macOS, try this AML to force a USB reset. But USB issues probably result from a faulty USB-port mapping.
-[SSDT-Thunderbolt4.aml](https://github.com/acidanthera/VirtualSMC/releases)|Used for monitoring CPU temperature, doesn't work on AMD CPU based systems.
+SSDT-AWAC.aml|Fixes RTC clock issues.
+SSDT-EC-USBX.aml|Fixes both the embedded controller and USB power.
+
+
+## optional ACPI
+.aml-file|Description
+:----|:----
+SSDT-PLUG-DRTNIA.aml|Enables native CPU Power Management. But as 11th Gen is not supported, it is not working on my 11900k.
+SSDT-USBW.aml|If you have the wake issue that it requires two keypresses to wake the display after sleep.
+SSDT-RHUB.aml|If you experience issues with USB when booting macOS, try this AML to force a USB reset. But USB issues probably result from a faulty USB-port mapping.
+SSDT-DTGP.aml|Thunderbolt 4 Support.
+SSDT-MAPLE-RIDGE-RP05-V2.aml|Thunderbolt 4 Support. You have to check the PCI-path of your Thunderbolt device. On Gigabyte Z590i Vision D and propably most Z590 boards it is RP05.
 
 # Kexts
 

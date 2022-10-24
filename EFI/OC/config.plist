@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>AWAC Fix</string>
+				<string>Required: AWAC RTC (Realtime clock) Fix</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -16,7 +16,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Defines dummy EC (embedded controller) device and enables USB power delivery</string>
+				<string>Required: Defines dummy EC (embedded controller) device and enables USB power delivery</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -24,19 +24,43 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Works with USBWakeFixup.kext to enable proper wake from sleep</string>
+				<string>Optional: Works with USBWakeFixup.kext to enable proper wake from sleep</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-USBW.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CPU Power Management</string>
+				<string>Optional: CPU Power Management</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-PLUG-DRTNIA.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Optional: USB Reset</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-RHUB.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Optional: Thunderbolt 4 Support</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-MAPLE-RIDGE-RP05-V2.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Optional: Thunderbolt 4 Support</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-DTGP.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -217,7 +241,7 @@
 				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
-				<string>Acidanthera plug-in manager</string>
+				<string>Required: Acidanthera plug-in manager</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -235,7 +259,7 @@
 				<key>BundlePath</key>
 				<string>VirtualSMC.kext</string>
 				<key>Comment</key>
-				<string>Emulates the SMC chip found on real macs, without this macOS will not boot.</string>
+				<string>Required: Emulates the SMC chip found on real macs, without this macOS will not boot.</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -253,7 +277,7 @@
 				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>Lilu plugin for managing both internal GPU and AMD GPUs</string>
+				<string>Required: Lilu plugin for managing both internal GPU and AMD GPUs</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -269,27 +293,9 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>AppleALC.kext</string>
-				<key>Comment</key>
-				<string>Onboard Audio</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/AppleALC</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>RestrictEvents.kext</string>
 				<key>Comment</key>
-				<string>Suppress notifications</string>
+				<string>Required: Suppress notifications</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -305,31 +311,13 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>SMCProcessor.kext</string>
+				<string>USBPorts_Z590i_VisionD.kext</string>
 				<key>Comment</key>
-				<string>VirtualSMC for CPU Sensor Data e.g. CPU Core Temp</string>
+				<string>Required: USB Port Mapping for Z590i Vision D</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCProcessor</string>
-				<key>MaxKernel</key>
 				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>SMCSuperIO.kext</string>
-				<key>Comment</key>
-				<string>VirtualSMC for Mainboard Sensor Data e.g. case fan speed</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCSuperIO</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -343,7 +331,7 @@
 				<key>BundlePath</key>
 				<string>AppleIntelI210Ethernet.kext</string>
 				<key>Comment</key>
-				<string>I225V Support for macOS Ventura</string>
+				<string>Required: I225V Support for macOS Ventura</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -359,13 +347,49 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>USBPorts_Z590i_VisionD.kext</string>
+				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string>USB Port Mapping for Z590i Vision D</string>
+				<string>Optional: Onboard Audio</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AppleALC</string>
+				<key>MaxKernel</key>
 				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>SMCProcessor.kext</string>
+				<key>Comment</key>
+				<string>Optional: VirtualSMC for CPU Sensor Data e.g. CPU Core Temp</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCProcessor</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>SMCSuperIO.kext</string>
+				<key>Comment</key>
+				<string>Optional: VirtualSMC for Mainboard Sensor Data e.g. case fan speed</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCSuperIO</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -464,9 +488,9 @@
 			<false/>
 			<key>AppleXcpmForceBoost</key>
 			<false/>
-			<key>CustomPciSerialDevice</key>
-			<false/>
 			<key>CustomSMBIOSGuid</key>
+			<false/>
+			<key>CustomPciSerialDevice</key>
 			<false/>
 			<key>DisableIoMapper</key>
 			<true/>
@@ -598,6 +622,33 @@
 		</dict>
 		<key>Serial</key>
 		<dict>
+			<key>Custom</key>
+			<dict>
+				<key>BaudRate</key>
+				<integer>115200</integer>
+				<key>ClockRate</key>
+				<integer>1843200</integer>
+				<key>DetectCable</key>
+				<false/>
+				<key>ExtendedTxFifoSize</key>
+				<integer>64</integer>
+				<key>FifoControl</key>
+				<integer>7</integer>
+				<key>LineControl</key>
+				<integer>7</integer>
+				<key>PciDeviceInfo</key>
+				<data>/w==</data>
+				<key>RegisterAccessWidth</key>
+				<integer>8</integer>
+				<key>RegisterBase</key>
+				<integer>1016</integer>
+				<key>RegisterStride</key>
+				<integer>1</integer>
+				<key>UseHardwareFlowControl</key>
+				<false/>
+				<key>UseMmio</key>
+				<false/>
+			</dict>
 			<key>Init</key>
 			<false/>
 			<key>Override</key>
@@ -664,10 +715,10 @@
 		</dict>
 		<key>LegacyOverwrite</key>
 		<false/>
-		<key>LegacySchema</key>
-		<dict/>
 		<key>WriteFlash</key>
 		<true/>
+		<key>LegacySchema</key>
+		<dict/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -679,10 +730,10 @@
 		<dict>
 			<key>AdviseFeatures</key>
 			<true/>
-			<key>MLB</key>
-			<string></string>
 			<key>MaxBIOSVersion</key>
 			<false/>
+			<key>MLB</key>
+			<string></string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
@@ -740,10 +791,10 @@
 			<integer>5</integer>
 			<key>PointerPollMask</key>
 			<integer>-1</integer>
-			<key>PointerPollMax</key>
-			<integer>80</integer>
 			<key>PointerPollMin</key>
 			<integer>10</integer>
+			<key>PointerPollMax</key>
+			<integer>80</integer>
 			<key>PointerSpeedDiv</key>
 			<integer>1</integer>
 			<key>PointerSpeedMul</key>
@@ -874,10 +925,10 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
-			<key>UIScale</key>
-			<integer>0</integer>
 			<key>UgaPassThrough</key>
 			<false/>
+			<key>UIScale</key>
+			<integer>0</integer>
 		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
