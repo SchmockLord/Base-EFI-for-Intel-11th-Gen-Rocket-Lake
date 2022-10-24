@@ -154,7 +154,7 @@ Kext|Description
 [AtherosE2200Ethernet.kext](https://github.com/Mieze/AtherosE2200Ethernet/releases)|Required for Atheros and Killer NICs.<br>**Note**: Atheros Killer E2500 models are actually Realtek based, for these systems please use RealtekRTL8111 instead.
 [RealtekRTL8111.kext](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)|For Realtek's Gigabit Ethernet.<br>Sometimes the latest version of the kext might not work properly with your Ethernet. If you see this issue, try older versions.
 
-# Wifi/Bluetooth
+# WIFI/Bluetooth
 
 Reference Guide: [Wireless Buyers Guide](https://dortania.github.io/Wireless-Buyers-Guide/)
 
