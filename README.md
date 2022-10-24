@@ -239,7 +239,7 @@ E.g. GPLD (One, 0x09) means this port is available on this board (one) and has t
 HS11 would be (0x0B). SS ports start with 1. E.g. SS01 is 0x11, SS10 is 0x1A.
 
 If you don't know the Hex-names of the ports, you can use Hackintool, e.g. Decimal 9 is also Hex 9 but 10 is A:
-![Screen Shot 2022-02-10 at 12 01 54](https://user-images.githubusercontent.com/19785918/153393913-d64e66da-6dfc-4762-94e5-6418b84d95b6.png)
+<img src="https://user-images.githubusercontent.com/19785918/153393913-d64e66da-6dfc-4762-94e5-6418b84d95b6.png" width="700">
 
 If you want to disable ports for macOS-only, you should wrap them like this:
 ```
@@ -258,4 +258,4 @@ This way other OS like Windows or Linux would use the Else-case where this port 
 
 You also need to Delete the original ACPI-table for the USB-Port Mapping: SSDT-7-xh_cmsd4.aml 
 
-![Screen Shot 2022-02-10 at 11 58 13](https://user-images.githubusercontent.com/19785918/153393316-97496e56-d6c0-44fc-a62b-c43a9f1656d0.png)
+<img src="https://user-images.githubusercontent.com/19785918/153393316-97496e56-d6c0-44fc-a62b-c43a9f1656d0.png" width="700">
