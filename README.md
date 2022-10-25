@@ -1,6 +1,10 @@
 # Base EFI for Intel 11th Gen Rocket Lake
  This is a base EFI which should be good to go for most 11th Gen Rocket lake boards.
  
+Bootloader
+:----
+OpenCore v0.8.5
+ 
 # Reference Guide
 
 [Dortania Comet Lake Install Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html)
@@ -44,7 +48,7 @@ You should do these steps on a real Mac.
 3. Rename the volume to "MyVolume".
 4. Download macOS from the App Store. After downloading you should have an installer in the applications folder.
 5. Go to this page and copy the terminal command for your macOS version: [Create a bootable USB installer for macOS](https://support.apple.com/de-de/HT201372)
-6. Open terminal and paste the command, e.g. for Monterey "sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume"
+6. Open terminal and paste the command, e.g. for Monterey ```sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume```
 7. Hit enter and commit the upcoming questions with Y for Yes. macOS should now create your macOS Installer stick.
 8. When the installer stick creation is finished, the installer volume should be mounted.
 9. Download and open Hackintool and go into the "Disks" menu. Click the double arrow beside your installer stick to mount its EFI-partition.
@@ -67,7 +71,7 @@ So every time you exchange any of the .efi files, you need to enroll them again.
 **BIOS-Settings for Secure Boot**:
   - Set **Secure Boot** to Enabled
   - Set **Secure Boot Mode** to Custom
-  - Go to **Key Management** and then unroll all .efi files in your EFI-folder. This is very different on every board. On Gigabyte this is named **Enroll EFI** and then you have to search for your boot-stick and add all *.efi Files one by one: BOOTX64.efi, all drivers(OpenRunTime.efi, OpenHFSPlus.efi, OpenCanopy.efi), OpenCore.EFI
+  - Go to **Key Management** and then unroll all .efi files in your EFI-folder. This is very different on every board. On Gigabyte the option you have to use is called **Enroll EFI Image**. In the upcoming prompt you have select your boot-stick and then enroll all *.efi Files one by one: BOOTX64.efi, all drivers(OpenRunTime.efi, OpenHFSPlus.efi, OpenCanopy.efi) and of course the OpenCore.EFI.
 
 # Thunderbolt
 
@@ -137,6 +141,14 @@ AppleALC.kext|Onboard Audio support. If your onboard audio is connected via USB 
 SMCProcessor.kext|VirtualSMC-plugin for CPU Sensor Data e.g. CPU Core Temp
 SMCSuperIO.kext|VirtualSMC-plugin for Mainboard Sensor Data e.g. case fan speed
 
+# CPU Emulation
+As the 11th Gen Intel is not supported officially, we have to emulate the 10th Gen Intel in the Kernel-Emulate section of the config.plist.
+
+Key|Type|Value
+:----|:----|:----
+Cpuid1Data|DATA|<55060A00 00000000 00000000 00000000>
+Cpuid1Mask|DATA|<FFFFFFFF 00000000 00000000 00000000>
+
 # Audio
 
 Kext|Description
@@ -146,7 +158,11 @@ AppleALC.kext|Onboard Audio support.
 If your onboard audio is connected via USB (HS11 on my Z590i Vision D) then you don't need this. But if not and you want onboard audio, you need to find out your layout-id (alcid). Add it in the bootargs e.g. 'alcid=1'. To find out your alcid/layout-id, see here: [Supported Codecs](https://github.com/acidanthera/applealc/wiki/supported-codecs)
 
 # Ethernet
-The 10Gbit Acquantia and the 2.5Gbit Intel (I225-V) should work out of the box. For the Acquantia I have the patches already in my config.plist included in the Kexts/patches section. And for the 2.5Git Intel the bootargs 'e1000=0' (Monterey and Ventura), 'dk.e1000=0' (Big Sur) and the AppleIntelI210Ethernet.kext (Ventura).
+The 10Gbit Acquantia and the 2.5Gbit Intel I225-V should work out of the box. 
+
+For the Acquantia I have the patches already in my config.plist included in the Kexts/patches section. 
+
+And for the 2.5Git Intel the bootargs 'e1000=0' (Monterey and Ventura), 'dk.e1000=0' (Big Sur) and the AppleIntelI210Ethernet.kext (Ventura).
 
 Kext|Description
 :----|:----
