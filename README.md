@@ -110,7 +110,7 @@ SSDT-EC-USBX.aml|Fixes both the embedded controller and USB power.
 ## Optional ACPI
 .aml-file|Description
 :----|:----
-SSDT-PLUG-DRTNIA.aml|Enables native CPU Power Management. But as 11th Gen is not supported, it is not working on my 11900k.
+SSDT-PLUG-DRTNIA.aml|Enables native CPU Power Management. But as 11th Gen is not supported, this SSDT has no effect on my 11900k or at least I can't tell I feel a difference. X86Plugin is not getting enabled.
 SSDT-USBW.aml|If you have the wake issue that it requires two keypresses to wake the display after sleep.
 SSDT-RHUB.aml|If you experience issues with USB when booting macOS, try this AML to force a USB reset. But USB issues probably result from a faulty USB-port mapping.
 SSDT-DTGP.aml|Thunderbolt 4 Support.
