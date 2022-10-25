@@ -130,7 +130,7 @@ Lilu.kext|Acidanthera plug-in manager
 VirtualSMC.kext|Emulates the SMC chip found on real macs, without this macOS will not boot.
 Whatevergreen.kext|Lilu plugin for managing both internal GPU and AMD GPUs
 RestrictEvents.kext|Suppress notifications e.g. on wrong RAM placement
-USBPorts_Z590i_VisionD.kext|You need a USB-port mapping that stays within the 15 port limit. Total number of HSxx and SSxx ports count. Otherwise macOS will not boot. This is just a sample of the Gigabyte Z590i Vision D which stays within the 15 ports limit and is a good initial setup. Many ports will work with other boards, but you need to customize this for your board if you want all the ports working correctly.
+USBPorts_Z590i_VisionD.kext|You need a USB-port mapping that stays within the 15 port limit. Total number of HSxx and SSxx ports count. Otherwise macOS will not boot. This is just a sample of the Gigabyte Z590i Vision D which stays within the 15 ports limit and is a good initial setup. Many ports will work with other boards, but you need to customize this for your board if you want all the ports working correctly. Hint: This Kext is for MacPro7,1 SMBIOS. If you want to use is with other SMBIOS like iMacPro1,1 you have to search and replace the SMBIOS in the info.plist of the Kext.
 
 ## Optional Kexts
 
