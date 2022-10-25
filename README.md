@@ -164,6 +164,8 @@ For the Acquantia I have the patches already in my config.plist included in the 
 
 And for the 2.5Git Intel the bootargs 'e1000=0' (Monterey and Ventura), 'dk.e1000=0' (Big Sur) and the AppleIntelI210Ethernet.kext (Ventura).
 
+Other Ethernet Kexts:
+
 Kext|Description
 :----|:----
 [IntelMausi.kext](https://github.com/acidanthera/IntelMausi/releases)|Intel's 82578, 82579, I217, I218 and I219 NICs are officially supported.
